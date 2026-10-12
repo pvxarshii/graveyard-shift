@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bt0n5f6lkgsfm"]
 
 [ext_resource type="Texture2D" uid="uid://dteq2ui4hfg8q" path="res://Assets/Player/Pawn/Pawn_Idle.png" id="1_ft8w5"]
+[ext_resource type="Script" uid="uid://clskp6kpnme5o" path="res://Scripts/Player/PlayerController.cs" id="1_h54ih"]
 [ext_resource type="Texture2D" uid="uid://dje21he6im222" path="res://Assets/Player/Pawn/Pawn_Run.png" id="2_h54ih"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3ax4"]
@@ -117,6 +118,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=674735723]
+script = ExtResource("1_h54ih")
+Speed = 1200.0
 
 [node name="PlayerColl" type="CollisionShape2D" parent="." unique_id=1498933616]
 shape = SubResource("CapsuleShape2D_l3ax4")
