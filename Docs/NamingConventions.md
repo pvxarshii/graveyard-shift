@@ -5,7 +5,7 @@
 Use `PascalCase` for all project folders, scenes, C# files, classes, and other in-project identifiers.
 
 Examples:
-- Folders: `Scenes/`, `Scripts/`, `Player/`
+- Folders: `Scenes`, `Scripts`, `Player`
 - Scenes: `Main.tscn`, `Player.tscn`
 - C# files: `PlayerController.cs`, `EnemyController.cs`
 - Classes: `PlayerController`, `EnemyController`
