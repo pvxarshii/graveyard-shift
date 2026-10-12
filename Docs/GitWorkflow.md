@@ -13,7 +13,7 @@ Guidelines for collaborating on Graveyard Shift while keeping the repository cle
 - Create a separate branch for each task or feature.
 - Keep changes focused on that task.
 - Push your branch to GitHub when you want to back it up or share your work.
-- Merge completed work into `main`, then delete the branch.
+- Merge completed work into `main`.
 
 ## 3. Daily Workflow
 
