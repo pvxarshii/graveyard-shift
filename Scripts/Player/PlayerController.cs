@@ -2,53 +2,86 @@ using Godot;
 
 public partial class PlayerController : CharacterBody2D
 {
-    // Exports
-    [Export] public float Speed = 200f;
+	// Exports
+	[Export] public float Speed = 400f;
+	[Export] public float MaxHealth = 1000f;
 
-    // Refrence
-    private AnimatedSprite2D AnimSprite;
+	// State
+	public float CurrentHealth { get; private set; }
+	public bool IsAlive { get; private set; } = true;
 
-    // Ready
-    public override void _Ready()
-    {
-        AnimSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-    }
+	// Signals
+	[Signal] public delegate void PlayerHealthChangedEventHandler(float currentHealth, float maxHealth);
+	[Signal] public delegate void PlayerDiedEventHandler();
 
-    // Delta
-    public override void _PhysicsProcess(double delta)
-    {
-        HandleMovement();
-        HandleSpriteFlip();
-        HandleAnimation();
-    }
+	// References
+	private AnimatedSprite2D AnimSprite;
 
-    // Movement
-    private void HandleMovement()
-    {
-        Vector2 direction = Input.GetVector(
-            "move_left",
-            "move_right",
-            "move_up",
-            "move_down"
-        );
+	// Ready
+	public override void _Ready()
+	{
+		AnimSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		CurrentHealth = MaxHealth;
+		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth);
+	}
 
-        Velocity = direction * Speed;
-        MoveAndSlide();
-    }
+	// Physics Process
+	public override void _PhysicsProcess(double delta)
+	{
+		if (!IsAlive)
+			return;
 
-    // Sprite Flip
-    private void HandleSpriteFlip()
-    {
-        if (Velocity.X != 0)
-            AnimSprite.FlipH = Velocity.X < 0;
-    }
+		HandleMovement();
+		HandleSpriteFlip();
+		HandleAnimation();
+	}
 
-    // Animations
-    private void HandleAnimation()
-    {
-        if (Velocity != Vector2.Zero)
-            AnimSprite.Play("Run");
-        else
-            AnimSprite.Play("Idle");
-    }
+	// Movement
+	private void HandleMovement()
+	{
+		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		Velocity = direction * Speed;
+		MoveAndSlide();
+	}
+
+	// Sprite Flip
+	private void HandleSpriteFlip()
+	{
+		if (Velocity.X != 0)
+			AnimSprite.FlipH = Velocity.X < 0;
+	}
+
+  // Animation
+  private void HandleAnimation()
+  {
+	  if (Velocity != Vector2.Zero)
+	  {
+		  AnimSprite.Play("Run");
+	  }
+	  else
+	  {
+		  AnimSprite.Play("Idle");
+	  }
+  }
+
+	// Health
+	public void TakeDamage(float amount)
+	{
+		if (!IsAlive || amount <= 0f)
+			return;
+
+		CurrentHealth = Mathf.Max(CurrentHealth - amount, 0f);
+		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth);
+
+		if (CurrentHealth <= 0f)
+			Die();
+	}
+
+	// Death
+	private void Die()
+	{
+		IsAlive = false;
+		Velocity = Vector2.Zero;
+		EmitSignal(SignalName.Died);
+	}
 }
