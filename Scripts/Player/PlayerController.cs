@@ -22,7 +22,7 @@ public partial class PlayerController : CharacterBody2D
 	{
 		AnimSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		CurrentHealth = MaxHealth;
-		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth);
+		EmitSignal(SignalName.PlayerHealthChanged, CurrentHealth, MaxHealth);
 	}
 
 	// Physics Process
@@ -71,7 +71,7 @@ public partial class PlayerController : CharacterBody2D
 			return;
 
 		CurrentHealth = Mathf.Max(CurrentHealth - amount, 0f);
-		EmitSignal(SignalName.HealthChanged, CurrentHealth, MaxHealth);
+		EmitSignal(SignalName.PlayerHealthChanged, CurrentHealth, MaxHealth);
 
 		if (CurrentHealth <= 0f)
 			Die();
@@ -82,6 +82,6 @@ public partial class PlayerController : CharacterBody2D
 	{
 		IsAlive = false;
 		Velocity = Vector2.Zero;
-		EmitSignal(SignalName.Died);
+		EmitSignal(SignalName.PlayerDied);
 	}
 }
