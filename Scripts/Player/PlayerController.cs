@@ -20,6 +20,7 @@ public partial class PlayerController : CharacterBody2D
 	// Ready
 	public override void _Ready()
 	{
+	AddToGroup("Player");
 		AnimSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		CurrentHealth = MaxHealth;
 		EmitSignal(SignalName.PlayerHealthChanged, CurrentHealth, MaxHealth);
