@@ -20,7 +20,7 @@ public partial class PlayerController : CharacterBody2D
 	// Ready
 	public override void _Ready()
 	{
-	  AddToGroup("Player");
+		AddToGroup("Player");
 		AnimSprite = GetNode<AnimatedSprite2D>("PlayerSprite");
 		CurrentHealth = MaxHealth;
 		EmitSignal(SignalName.PlayerHealthChanged, CurrentHealth, MaxHealth);
@@ -38,7 +38,7 @@ public partial class PlayerController : CharacterBody2D
 	}
 
 	// Movement
-	private void HandleMovement()
+	public virtual void HandleMovement()
 	{
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
 		Velocity = direction * Speed;
@@ -46,27 +46,23 @@ public partial class PlayerController : CharacterBody2D
 	}
 
 	// Sprite Flip
-	private void HandleSpriteFlip()
+	protected virtual void HandleSpriteFlip()
 	{
 		if (Velocity.X != 0)
 			AnimSprite.FlipH = Velocity.X < 0;
 	}
 
-  // Animation
-  private void HandleAnimation()
-  {
-	  if (Velocity != Vector2.Zero)
-	  {
-		  AnimSprite.Play("Run");
-	  }
-	  else
-	  {
-		  AnimSprite.Play("Idle");
-	  }
-  }
+	// Animation
+	protected virtual void HandleAnimation()
+	{
+		if (Velocity != Vector2.Zero)
+			AnimSprite.Play("Run");
+		else
+			AnimSprite.Play("Idle");
+	}
 
 	// Health
-	public void TakeDamage(float amount)
+	public virtual void TakeDamage(float amount)
 	{
 		if (!IsAlive || amount <= 0f)
 			return;
@@ -79,7 +75,7 @@ public partial class PlayerController : CharacterBody2D
 	}
 
 	// Death
-	private void Die()
+	public virtual void Die()
 	{
 		IsAlive = false;
 		Velocity = Vector2.Zero;
