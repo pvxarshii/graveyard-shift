@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://blsgbc2s4uxu4"]
+
+[ext_resource type="Texture2D" uid="uid://bnlc0ifnjfh37" path="res://Assets/Enemies/Zombie/Zombie.png" id="1_18rts"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37ncf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_18rts")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Zombie" type="Node2D" unique_id=1753297201]
+
+[node name="ZombieSprite" type="AnimatedSprite2D" parent="." unique_id=2027155113]
+position = Vector2(18, -18)
+sprite_frames = SubResource("SpriteFrames_37ncf")
+animation = &"Idle"
