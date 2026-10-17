@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btdym11cwyob0"]
 
 [ext_resource type="Texture2D" uid="uid://q3xtjcoo2fq6" path="res://Assets/Enemies/RedEye/Enemy smol red .png" id="1_7ffuy"]
+[ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_ljpnc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_37ncf"]
 animations = [{
@@ -13,17 +14,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37ncf"]
-radius = 20.0
-height = 94.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ffuy"]
+radius = 33.0
+height = 88.0
 
 [node name="RedEye" type="CharacterBody2D" unique_id=1040371487]
+script = ExtResource("1_ljpnc")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=2027155113]
 position = Vector2(10, -12)
 sprite_frames = SubResource("SpriteFrames_37ncf")
 animation = &"Idle"
 
-[node name="EnemyColl" type="CollisionShape2D" parent="." unique_id=782856684]
-position = Vector2(-1, -6)
-shape = SubResource("CapsuleShape2D_37ncf")
+[node name="AttackArea" type="Area2D" parent="." unique_id=446539632]
+
+[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=1279941443]
+position = Vector2(-1, -5)
+shape = SubResource("CapsuleShape2D_7ffuy")

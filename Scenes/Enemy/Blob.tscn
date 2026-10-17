@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dakrxh7m4wnat"]
 
 [ext_resource type="Texture2D" uid="uid://dbkwtxgq5ie8p" path="res://Assets/Enemies/Blob/First enemy1.png" id="1_s8rtf"]
+[ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_tn720"]
 [ext_resource type="Texture2D" uid="uid://bdtqujvgu58th" path="res://Assets/Enemies/Blob/First enemy2.png" id="2_tn720"]
 [ext_resource type="Texture2D" uid="uid://d3gbr020y4ywg" path="res://Assets/Enemies/Blob/First enemy3.png" id="3_k1eku"]
 [ext_resource type="Texture2D" uid="uid://tjl5d1pwaxdg" path="res://Assets/Enemies/Blob/First enemy4.png" id="4_s01lp"]
@@ -86,18 +87,21 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37ncf"]
-radius = 43.0
-height = 112.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8rtf"]
+radius = 41.0
+height = 82.0
 
 [node name="Blob" type="CharacterBody2D" unique_id=1040371487]
+script = ExtResource("1_tn720")
 
-[node name="BlobSprite" type="AnimatedSprite2D" parent="." unique_id=2027155113]
+[node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=2027155113]
 position = Vector2(18, -18)
 sprite_frames = SubResource("SpriteFrames_37ncf")
 animation = &"Attack"
 frame_progress = 0.02948416
 
-[node name="BlobColl" type="CollisionShape2D" parent="." unique_id=782856684]
-position = Vector2(-1, 6)
-shape = SubResource("CapsuleShape2D_37ncf")
+[node name="AttackArea" type="Area2D" parent="." unique_id=1207475534]
+
+[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=538323070]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_s8rtf")

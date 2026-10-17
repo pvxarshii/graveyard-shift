@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dcjnbmjfjjd44"]
 
+[ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_eunhw"]
 [ext_resource type="Texture2D" uid="uid://cdpsjkng601qa" path="res://Assets/Enemies/SwordGhost/SwordGhost.png" id="1_wnq82"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i606b"]
@@ -13,17 +14,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37ncf"]
-radius = 30.0
-height = 150.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wnq82"]
+radius = 28.0
+height = 112.0
 
 [node name="GhostSword" type="CharacterBody2D" unique_id=266463273]
+script = ExtResource("1_eunhw")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=1388178165]
 position = Vector2(4, -26)
 sprite_frames = SubResource("SpriteFrames_i606b")
 animation = &"Idle"
 
-[node name="EnemyColl" type="CollisionShape2D" parent="." unique_id=1087674128]
-position = Vector2(-1, -15)
-shape = SubResource("CapsuleShape2D_37ncf")
+[node name="AttackArea" type="Area2D" parent="." unique_id=271521923]
+
+[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=1926934379]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_wnq82")
