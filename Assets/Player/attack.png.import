@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://moq25jsku233"
-path="res://.godot/imported/Pawn_Run Axe.png-f9081e18362ffe7f202216584e2db73a.ctex"
+uid="uid://fvxwgmhw2xr1"
+path="res://.godot/imported/attack.png-1944aedd7ba3b8d76b4115e8fb79c215.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Run Axe.png"
-dest_files=["res://.godot/imported/Pawn_Run Axe.png-f9081e18362ffe7f202216584e2db73a.ctex"]
+source_file="res://Assets/Player/attack.png"
+dest_files=["res://.godot/imported/attack.png-1944aedd7ba3b8d76b4115e8fb79c215.ctex"]
 
 [params]
 

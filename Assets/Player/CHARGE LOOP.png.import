@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsnr6oy6qlyji"
-path="res://.godot/imported/Pawn_Idle Knife.png-afa052b95433a2d03501683b0c6c1fc0.ctex"
+uid="uid://yi6n4uooljtr"
+path="res://.godot/imported/CHARGE LOOP.png-756126514168130e08add4de9810e33a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Idle Knife.png"
-dest_files=["res://.godot/imported/Pawn_Idle Knife.png-afa052b95433a2d03501683b0c6c1fc0.ctex"]
+source_file="res://Assets/Player/CHARGE LOOP.png"
+dest_files=["res://.godot/imported/CHARGE LOOP.png-756126514168130e08add4de9810e33a.ctex"]
 
 [params]
 

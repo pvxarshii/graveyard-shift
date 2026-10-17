@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c43i6uircs7tp"
-path="res://.godot/imported/Pawn_Idle Axe.png-2f6d259f48fb069c3902ce4f80cc8f9b.ctex"
+uid="uid://b5wke08i8qnnn"
+path="res://.godot/imported/WALK.png-05145ef6b9ad2b27b7f168787442ce7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Idle Axe.png"
-dest_files=["res://.godot/imported/Pawn_Idle Axe.png-2f6d259f48fb069c3902ce4f80cc8f9b.ctex"]
+source_file="res://Assets/Player/WALK.png"
+dest_files=["res://.godot/imported/WALK.png-05145ef6b9ad2b27b7f168787442ce7e.ctex"]
 
 [params]
 
