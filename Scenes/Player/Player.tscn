@@ -119,12 +119,11 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=674735723]
 script = ExtResource("1_h54ih")
-Speed = 400.0
 
 [node name="PlayerColl" type="CollisionShape2D" parent="." unique_id=1498933616]
 shape = SubResource("CapsuleShape2D_l3ax4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=590376318]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=590376318]
 sprite_frames = SubResource("SpriteFrames_37ncf")
 animation = &"Run"
 autoplay = "Idle"
