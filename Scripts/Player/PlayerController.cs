@@ -65,6 +65,11 @@ public partial class PlayerController : CharacterBody2D
 	// Animation
 	protected virtual void HandleAnimation()
 	{
+		if (IsSpawning)
+		{
+			AnimSprite.Play("Spawn");
+			return;
+		}
 		if (Velocity != Vector2.Zero)
 			AnimSprite.Play("Run");
 		else
