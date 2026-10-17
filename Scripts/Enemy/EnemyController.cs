@@ -7,6 +7,8 @@ public partial class EnemyController : CharacterBody2D
 	[Export] public float MaxHealth = 50f;
 	[Export] public float Damage = 1f;
 	[Export] public float AttackInterval = 1f;
+	[Export] public float SeparationRadius = 200f;
+	[Export] public float SeparationForce = 1000f;
 
 	// State
 	public float CurrentHealth { get; private set; }
@@ -22,6 +24,7 @@ public partial class EnemyController : CharacterBody2D
 	// Ready
 	public override void _Ready()
 	{
+		AddToGroup("Enemy");
 		CurrentHealth = MaxHealth;
 		AnimSprite = GetNode<AnimatedSprite2D>("EnemySprite");
 		Player = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
@@ -53,8 +56,33 @@ public partial class EnemyController : CharacterBody2D
 
 		Vector2 direction = GlobalPosition.DirectionTo(Player.GlobalPosition);
 		Velocity = direction * Speed;
+		HandleSeparation();
 		MoveAndSlide();
 	}
+
+	// Seperation
+	protected virtual void HandleSeparation()
+	{
+		Vector2 pushAway = Vector2.Zero;
+
+		foreach (var enemy in GetTree().GetNodesInGroup("Enemy"))
+		{
+			if (enemy == this)
+				continue;
+
+			var enemyBody = enemy as Node2D;
+			if (enemyBody == null)
+				continue;
+
+			float dist = GlobalPosition.DistanceTo(enemyBody.GlobalPosition);
+			if (dist < SeparationRadius && dist > 0.01f)
+				pushAway += GlobalPosition.DirectionTo(enemyBody.GlobalPosition) * (1f - dist / SeparationRadius);
+		}
+
+		Velocity -= pushAway * SeparationForce * (float)GetPhysicsProcessDeltaTime();
+	}
+
+
 
 	// Sprite Flip
 	protected virtual void HandleSpriteFlip()
