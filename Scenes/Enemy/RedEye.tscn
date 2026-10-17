@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://btdym11cwyob0"]
+
+[ext_resource type="Texture2D" uid="uid://q3xtjcoo2fq6" path="res://Assets/Enemies/RedEye/Enemy smol red .png" id="1_7ffuy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37ncf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ffuy")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37ncf"]
+radius = 20.0
+height = 94.0
+
+[node name="RedEye" type="CharacterBody2D" unique_id=1040371487]
+
+[node name="RedEyeSprite" type="AnimatedSprite2D" parent="." unique_id=2027155113]
+position = Vector2(10, -12)
+sprite_frames = SubResource("SpriteFrames_37ncf")
+animation = &"Idle"
+
+[node name="RedEyeColl" type="CollisionShape2D" parent="." unique_id=782856684]
+position = Vector2(-1, -6)
+shape = SubResource("CapsuleShape2D_37ncf")
