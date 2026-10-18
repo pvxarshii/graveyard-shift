@@ -83,8 +83,6 @@ public partial class PlayerController : CharacterBody2D
 			IsSpawning = false;
 	}
 
-
-
 	// Health
 	public virtual void TakeDamage(float amount)
 	{
@@ -104,5 +102,6 @@ public partial class PlayerController : CharacterBody2D
 		IsAlive = false;
 		Velocity = Vector2.Zero;
 		EmitSignal(SignalName.PlayerDied);
+		AnimSprite.Play("Death");
 	}
 }
