@@ -465,6 +465,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=674735723]
+scale = Vector2(3, 3)
 script = ExtResource("1_h54ih")
 
 [node name="PlayerColl" type="CollisionShape2D" parent="." unique_id=1498933616]
