@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv2hdm3f5nhb"
-path="res://.godot/imported/Pawn_Interact Knife.png-7d5a6d3e41d720b5dd202948a372cfd7.ctex"
+uid="uid://cgod7xfg0l7j6"
+path="res://.godot/imported/SPAWN.png-6ee79d4c67afd2ca6dfd827dff71eb96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Interact Knife.png"
-dest_files=["res://.godot/imported/Pawn_Interact Knife.png-7d5a6d3e41d720b5dd202948a372cfd7.ctex"]
+source_file="res://Assets/Player/SPAWN.png"
+dest_files=["res://.godot/imported/SPAWN.png-6ee79d4c67afd2ca6dfd827dff71eb96.ctex"]
 
 [params]
 

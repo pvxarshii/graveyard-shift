@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfhklfdjwa155"
-path="res://.godot/imported/Pawn_Idle Hammer.png-413f7050388876b6fcf10081dee38444.ctex"
+uid="uid://b74yqvqbwhox4"
+path="res://.godot/imported/death.png-71ecadb20e0730e25576b165b41a7c9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Idle Hammer.png"
-dest_files=["res://.godot/imported/Pawn_Idle Hammer.png-413f7050388876b6fcf10081dee38444.ctex"]
+source_file="res://Assets/Player/death.png"
+dest_files=["res://.godot/imported/death.png-71ecadb20e0730e25576b165b41a7c9c.ctex"]
 
 [params]
 

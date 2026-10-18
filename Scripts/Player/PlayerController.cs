@@ -9,6 +9,7 @@ public partial class PlayerController : CharacterBody2D
 	// State
 	public float CurrentHealth { get; private set; }
 	public bool IsAlive { get; private set; } = true;
+	private bool IsSpawning = true;
 
 	// Signals
 	[Signal] public delegate void PlayerHealthChangedEventHandler(float currentHealth, float maxHealth);
@@ -24,6 +25,9 @@ public partial class PlayerController : CharacterBody2D
 		AnimSprite = GetNode<AnimatedSprite2D>("PlayerSprite");
 		CurrentHealth = MaxHealth;
 		EmitSignal(SignalName.PlayerHealthChanged, CurrentHealth, MaxHealth);
+		AnimSprite.Play("Spawn");
+		AnimSprite.AnimationFinished += OnSpawnFinished;
+
 	}
 
 	// Physics Process
@@ -40,6 +44,12 @@ public partial class PlayerController : CharacterBody2D
 	// Movement
 	public virtual void HandleMovement()
 	{
+		if (IsSpawning)
+		{
+			Velocity = Vector2.Zero;
+			return;
+		}
+
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
 		Velocity = direction * Speed;
 		MoveAndSlide();
@@ -55,10 +65,22 @@ public partial class PlayerController : CharacterBody2D
 	// Animation
 	protected virtual void HandleAnimation()
 	{
+		if (IsSpawning)
+		{
+			AnimSprite.Play("Spawn");
+			return;
+		}
 		if (Velocity != Vector2.Zero)
 			AnimSprite.Play("Run");
 		else
 			AnimSprite.Play("Idle");
+	}
+
+	// Spawn Animation
+	private void OnSpawnFinished()
+	{
+		if (AnimSprite.Animation == "Spawn")
+			IsSpawning = false;
 	}
 
 	// Health
@@ -80,5 +102,6 @@ public partial class PlayerController : CharacterBody2D
 		IsAlive = false;
 		Velocity = Vector2.Zero;
 		EmitSignal(SignalName.PlayerDied);
+		AnimSprite.Play("Death");
 	}
 }

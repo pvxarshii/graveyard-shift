@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3rk5e5avm1hb"
-path="res://.godot/imported/Pawn_Run Gold.png-144cb3da9ea98090e5d95bfbc997ece7.ctex"
+uid="uid://7ys0d3a1ydq0"
+path="res://.godot/imported/IDLE.png-3d82d6a20df3bdc6c6c62f6c4cb0aa3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Run Gold.png"
-dest_files=["res://.godot/imported/Pawn_Run Gold.png-144cb3da9ea98090e5d95bfbc997ece7.ctex"]
+source_file="res://Assets/Player/IDLE.png"
+dest_files=["res://.godot/imported/IDLE.png-3d82d6a20df3bdc6c6c62f6c4cb0aa3f.ctex"]
 
 [params]
 

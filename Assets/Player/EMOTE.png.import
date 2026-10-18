@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwiouay0k0jcf"
-path="res://.godot/imported/Pawn_Idle Gold.png-7e52ded9f3aec3afaa09d23f8d343e90.ctex"
+uid="uid://bxqtsajkxm2dl"
+path="res://.godot/imported/EMOTE.png-a3be59f481ee81f09062a2190ec53346.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Pawn/Pawn_Idle Gold.png"
-dest_files=["res://.godot/imported/Pawn_Idle Gold.png-7e52ded9f3aec3afaa09d23f8d343e90.ctex"]
+source_file="res://Assets/Player/EMOTE.png"
+dest_files=["res://.godot/imported/EMOTE.png-a3be59f481ee81f09062a2190ec53346.ctex"]
 
 [params]
 
