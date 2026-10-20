@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://nlc8ou51ry1v"]
+
+[ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_6k34c"]
+[ext_resource type="Texture2D" uid="uid://dk2nu73h8j1e1" path="res://Assets/Enemies/Bat/Attack/SimpleEnemies Bat_Attack Spritesheet.png" id="1_qdwi4"]
+[ext_resource type="Texture2D" uid="uid://w1l5k8e4rw1m" path="res://Assets/Enemies/Bat/Idle/SimpleEnemies Bat_Idle Spritesheet.png" id="2_6k34c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k34c"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js413"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_570le"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwv1k"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa2l5"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfm6k"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlwc7"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d866b"]
+atlas = ExtResource("1_qdwi4")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj2he"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8imt"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgu1"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ngac"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_413kf"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gdmm"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wly6d"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuald"]
+atlas = ExtResource("2_6k34c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_js413"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k34c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js413")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_570le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwv1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa2l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfm6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlwc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d866b")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj2he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8imt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukgu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ngac")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_413kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gdmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wly6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuald")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_570le"]
+radius = 21.0
+height = 42.0
+
+[node name="Bat" type="CharacterBody2D" unique_id=1012478012]
+script = ExtResource("1_6k34c")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=143226164]
+texture_filter = 1
+position = Vector2(-1, 5)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_js413")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1026708231]
+position = Vector2(-1, 11)
+
+[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=1887446718]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_570le")
