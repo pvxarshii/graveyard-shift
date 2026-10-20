@@ -470,7 +470,7 @@ height = 78.0
 scale = Vector2(3, 3)
 script = ExtResource("1_h54ih")
 
-[node name="PlayerSprite2" type="AnimatedSprite2D" parent="." unique_id=198070345]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=198070345]
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_37ncf")
