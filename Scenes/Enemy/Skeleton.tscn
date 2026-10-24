@@ -168,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rtbf2")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Death",
 "speed": 11.0
 }]
