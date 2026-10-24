@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cfk777gapmgu1"]
+
+[ext_resource type="Texture2D" uid="uid://ds615xvaixxin" path="res://Assets/MagicBullet/Part4_Column_1.png" id="1_1gnu4"]
+[ext_resource type="Script" uid="uid://cllo431tq2an1" path="res://Scripts/Player/MagicBullet.cs" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifvby"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(0, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxbsa"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(64, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wqun"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(128, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhqmr"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(192, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iww6y"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(256, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxijp"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(320, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlihs"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(384, 832, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5tny"]
+atlas = ExtResource("1_1gnu4")
+region = Rect2(448, 832, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x314s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifvby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxbsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wqun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhqmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iww6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxijp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlihs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5tny")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khk3o"]
+size = Vector2(14, 20)
+
+[node name="MagicBullet" type="Area2D" unique_id=409168763]
+collision_layer = 0
+collision_mask = 1
+monitorable = false
+script = ExtResource("2_script")
+
+[node name="MagicBulletSprite" type="AnimatedSprite2D" parent="." unique_id=231999110]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_x314s")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.4935997
+
+[node name="MagicBulletColl" type="CollisionShape2D" parent="." unique_id=122606110]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_khk3o")

@@ -9,7 +9,7 @@ public partial class PlayerController : CharacterBody2D
 	// State
 	public float CurrentHealth { get; private set; }
 	public bool IsAlive { get; private set; } = true;
-	private bool IsSpawning = true;
+	public bool IsSpawning { get; private set; } = true;
 
 	// Signals
 	[Signal] public delegate void PlayerHealthChangedEventHandler(float currentHealth, float maxHealth);

@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c0ogevwae11lx" path="res://Assets/Player/emote laugh.png" id="4_fk5o5"]
 [ext_resource type="Texture2D" uid="uid://b5wke08i8qnnn" path="res://Assets/Player/WALK.png" id="5_825xp"]
 [ext_resource type="Texture2D" uid="uid://cgod7xfg0l7j6" path="res://Assets/Player/SPAWN.png" id="6_ji083"]
+[ext_resource type="Script" uid="uid://ceeubavflx0e0" path="res://Scripts/Player/PlayerCombatController.cs" id="7_combat"]
+[ext_resource type="PackedScene" uid="uid://cfk777gapmgu1" path="res://Scenes/Player/MagicBullet.tscn" id="8_bullet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kmp4"]
 atlas = ExtResource("2_4wape")
@@ -479,3 +481,7 @@ autoplay = "Spawn"
 [node name="PlayerColl" type="CollisionShape2D" parent="." unique_id=1108995287]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_l3ax4")
+
+[node name="PlayerCombat" type="Node2D" parent="." unique_id=384019441]
+script = ExtResource("7_combat")
+BulletScene = ExtResource("8_bullet")
