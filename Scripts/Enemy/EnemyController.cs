@@ -143,6 +143,8 @@ public partial class EnemyController : CharacterBody2D
 		IsAlive = false;
 		Velocity = Vector2.Zero;
 		EmitSignal(SignalName.EnemyDied);
+		EnemyArea.SetDeferred(Area2D.PropertyName.Monitoring, false);
+		EnemyArea.SetDeferred(Area2D.PropertyName.Monitorable, false);
 		AnimSprite.Play("Death");
 	}
 
