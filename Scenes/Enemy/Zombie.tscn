@@ -172,6 +172,7 @@ height = 42.0
 
 [node name="Zombie" type="CharacterBody2D" unique_id=1040371487]
 script = ExtResource("1_u8ver")
+metadata/_edit_horizontal_guides_ = [-45.0, 45.0]
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=2027155113]
 texture_filter = 1
@@ -188,6 +189,8 @@ position = Vector2(14.999998, -16)
 scale = Vector2(2.7631578, 2.7631578)
 sprite_frames = SubResource("SpriteFrames_i606b")
 animation = &"Death"
+frame = 9
+frame_progress = 1.0
 
 [node name="EnemyArea" type="Area2D" parent="." unique_id=2129099594]
 position = Vector2(0, 14)
