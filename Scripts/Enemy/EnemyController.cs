@@ -22,6 +22,7 @@ public partial class EnemyController : CharacterBody2D
 
 	// References
 	private AnimatedSprite2D AnimSprite;
+	private AnimatedSprite2D DeathSprite;
 	protected PlayerController Player;
 	private Area2D EnemyArea;
 
@@ -31,11 +32,18 @@ public partial class EnemyController : CharacterBody2D
 		AddToGroup("Enemy");
 		CurrentHealth = MaxHealth;
 		AnimSprite = GetNode<AnimatedSprite2D>("EnemySprite");
+		DeathSprite = GetNodeOrNull<AnimatedSprite2D>("DeathSprite");
 		Player = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
 		EnemyArea = GetNode<Area2D>("EnemyArea");
 		EnemyArea.BodyEntered += OnBodyEntered;
 		EnemyArea.BodyExited += OnBodyExited;
-		AnimSprite.AnimationFinished += OnDeathFinished;
+
+		if (DeathSprite != null)
+		{
+			DeathSprite.Visible = false;
+			DeathSprite.AnimationFinished += OnDeathAnimationFinished;
+		}
+
 		EmitSignal(SignalName.EnemyHealthChanged, CurrentHealth, MaxHealth);
 	}
 
@@ -142,17 +150,32 @@ public partial class EnemyController : CharacterBody2D
 	{
 		IsAlive = false;
 		Velocity = Vector2.Zero;
+		RemoveFromGroup("Enemy");
 		EmitSignal(SignalName.EnemyDied);
 		EnemyArea.SetDeferred(Area2D.PropertyName.Monitoring, false);
 		EnemyArea.SetDeferred(Area2D.PropertyName.Monitorable, false);
-		AnimSprite.Play("Death");
+
+		if (DeathSprite != null)
+		{
+			AnimSprite.Stop();
+			AnimSprite.Visible = false;
+			DeathSprite.FlipH = AnimSprite.FlipH;
+			DeathSprite.Visible = true;
+			DeathSprite.Play("Death");
+		}
+		else
+		{
+			QueueFree();
+		}
 	}
 
 	// Death Animation
-	private void OnDeathFinished()
+	private void OnDeathAnimationFinished()
 	{
-		if (AnimSprite.Animation == "Death")
-			QueueFree();
+		if (IsAlive)
+			return;
+
+		QueueFree();
 	}
 
 	// Signal Handlers
