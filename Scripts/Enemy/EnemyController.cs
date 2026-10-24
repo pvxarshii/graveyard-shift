@@ -16,6 +16,10 @@ public partial class EnemyController : CharacterBody2D
 	public bool PlayerInRange { get; set; } = false;
 	private float AttackCooldownTimer = 0f;
 
+	// Signals
+	[Signal] public delegate void EnemyHealthChangedEventHandler(float currentHealth, float maxHealth);
+	[Signal] public delegate void EnemyDiedEventHandler();
+
 	// References
 	private AnimatedSprite2D AnimSprite;
 	protected PlayerController Player;
@@ -32,6 +36,7 @@ public partial class EnemyController : CharacterBody2D
 		EnemyArea.BodyEntered += OnBodyEntered;
 		EnemyArea.BodyExited += OnBodyExited;
 		AnimSprite.AnimationFinished += OnDeathFinished;
+		EmitSignal(SignalName.EnemyHealthChanged, CurrentHealth, MaxHealth);
 	}
 
 	// Physics Process
@@ -108,6 +113,7 @@ public partial class EnemyController : CharacterBody2D
 			return;
 
 		CurrentHealth = Mathf.Max(CurrentHealth - amount, 0f);
+		EmitSignal(SignalName.EnemyHealthChanged, CurrentHealth, MaxHealth);
 
 		if (CurrentHealth <= 0f)
 			Die();
@@ -136,6 +142,7 @@ public partial class EnemyController : CharacterBody2D
 	{
 		IsAlive = false;
 		Velocity = Vector2.Zero;
+		EmitSignal(SignalName.EnemyDied);
 		AnimSprite.Play("Death");
 	}
 
