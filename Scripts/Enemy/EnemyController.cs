@@ -14,7 +14,7 @@ public partial class EnemyController : CharacterBody2D
 	public float CurrentHealth { get; private set; }
 	public bool IsAlive { get; private set; } = true;
 	public bool PlayerInRange { get; set; } = false;
-	private float attackCooldownTimer = 0f;
+	private float AttackCooldownTimer = 0f;
 
 	// References
 	private AnimatedSprite2D AnimSprite;
@@ -119,14 +119,14 @@ public partial class EnemyController : CharacterBody2D
 	{
 		if (!PlayerInRange || Player == null)
 		{
-			attackCooldownTimer = 0f;
+			AttackCooldownTimer = 0f;
 			return;
 		}
 
-		attackCooldownTimer += (float)delta;
-		if (attackCooldownTimer >= AttackInterval)
+		AttackCooldownTimer += (float)delta;
+		if (AttackCooldownTimer >= AttackInterval)
 		{
-			attackCooldownTimer = 0f;
+			AttackCooldownTimer = 0f;
 			Player.TakeDamage(Damage);
 			GD.Print($"Dealt {Damage} damage to player!");
 		}
