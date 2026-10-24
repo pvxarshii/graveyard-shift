@@ -151,8 +151,8 @@ animation = &"Attack"
 autoplay = "Idle"
 frame_progress = 0.17857355
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=804887687]
+[node name="EnemyArea" type="Area2D" parent="." unique_id=804887687]
 
-[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=1216151025]
+[node name="AreaColl" type="CollisionShape2D" parent="EnemyArea" unique_id=1216151025]
 position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_iybhp")

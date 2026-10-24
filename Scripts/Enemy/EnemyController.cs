@@ -19,7 +19,7 @@ public partial class EnemyController : CharacterBody2D
 	// References
 	private AnimatedSprite2D AnimSprite;
 	protected PlayerController Player;
-	private Area2D AttackArea;
+	private Area2D EnemyArea;
 
 	// Ready
 	public override void _Ready()
@@ -28,9 +28,9 @@ public partial class EnemyController : CharacterBody2D
 		CurrentHealth = MaxHealth;
 		AnimSprite = GetNode<AnimatedSprite2D>("EnemySprite");
 		Player = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
-		AttackArea = GetNode<Area2D>("AttackArea");
-		AttackArea.BodyEntered += OnBodyEntered;
-		AttackArea.BodyExited += OnBodyExited;
+		EnemyArea = GetNode<Area2D>("EnemyArea");
+		EnemyArea.BodyEntered += OnBodyEntered;
+		EnemyArea.BodyExited += OnBodyExited;
 	}
 
 	// Physics Process

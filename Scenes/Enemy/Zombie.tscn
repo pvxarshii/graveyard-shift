@@ -102,9 +102,9 @@ sprite_frames = SubResource("SpriteFrames_37ncf")
 animation = &"Run"
 frame_progress = 0.59242517
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=2129099594]
+[node name="EnemyArea" type="Area2D" parent="." unique_id=2129099594]
 position = Vector2(0, 14)
 
-[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=782856684]
-position = Vector2(0, -15)
+[node name="AreaColl" type="CollisionShape2D" parent="EnemyArea" unique_id=782856684]
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_37ncf")

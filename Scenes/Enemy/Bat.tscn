@@ -149,9 +149,9 @@ sprite_frames = SubResource("SpriteFrames_js413")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=1026708231]
+[node name="EnemyArea" type="Area2D" parent="." unique_id=1026708231]
 position = Vector2(-1, 11)
 
-[node name="AttackColl" type="CollisionShape2D" parent="AttackArea" unique_id=1887446718]
+[node name="AreaColl" type="CollisionShape2D" parent="EnemyArea" unique_id=1887446718]
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_570le")
