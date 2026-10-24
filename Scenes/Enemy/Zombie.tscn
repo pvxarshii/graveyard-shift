@@ -100,7 +100,7 @@ position = Vector2(-5, -34)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_37ncf")
 animation = &"Run"
-frame_progress = 0.36793855
+frame_progress = 0.59242517
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=2129099594]
 position = Vector2(0, 14)
