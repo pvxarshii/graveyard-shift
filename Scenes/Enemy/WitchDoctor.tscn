@@ -222,6 +222,7 @@ height = 86.0
 texture_filter = 1
 script = ExtResource("1_4ulot")
 metadata/_edit_horizontal_guides_ = [-45.0, 45.0]
+metadata/_edit_vertical_guides_ = [-29.0, 54.0]
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=1730410856]
 texture_filter = 1

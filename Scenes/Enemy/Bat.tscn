@@ -221,6 +221,7 @@ height = 42.0
 [node name="Bat" type="CharacterBody2D" unique_id=1012478012]
 texture_filter = 1
 script = ExtResource("1_6k34c")
+metadata/_edit_vertical_guides_ = [-31.0, 12.0]
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=143226164]
 texture_filter = 1

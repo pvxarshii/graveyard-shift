@@ -180,8 +180,8 @@ height = 86.0
 [node name="Skeleton" type="CharacterBody2D" unique_id=2079074379]
 texture_filter = 1
 script = ExtResource("1_vkhtt")
-metadata/_edit_horizontal_guides_ = [-46.0, 44.0]
-metadata/_edit_vertical_guides_ = [-149.0]
+metadata/_edit_horizontal_guides_ = [-47.0, 44.0]
+metadata/_edit_vertical_guides_ = [-26.0, 22.0]
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=278451659]
 texture_filter = 1
