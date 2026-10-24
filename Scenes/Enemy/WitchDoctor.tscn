@@ -190,7 +190,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Attack",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -327,8 +327,10 @@ texture_filter = 1
 position = Vector2(1.0000076, 0)
 scale = Vector2(1.109375, 1.109375)
 sprite_frames = SubResource("SpriteFrames_rinyu")
-animation = &"Attack"
+animation = &"Death"
 autoplay = "Idle"
+frame = 9
+frame_progress = 1.0
 
 [node name="EnemyArea" type="Area2D" parent="." unique_id=804887687]
 
