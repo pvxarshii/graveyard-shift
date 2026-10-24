@@ -3,6 +3,31 @@
 [ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_4ulot"]
 [ext_resource type="Texture2D" uid="uid://dkvstqjp16v2v" path="res://Assets/Enemies/WitchDoctor/Witch_Doctor_Idle.png" id="1_joc1q"]
 [ext_resource type="Texture2D" uid="uid://32babqb6hqlj" path="res://Assets/Enemies/WitchDoctor/Witch_Doctor_Move.png" id="2_4ulot"]
+[ext_resource type="Texture2D" uid="uid://b3n7dlsm8lmu" path="res://Assets/Enemies/WitchDoctor/Witch_Doctor_Skill.png" id="2_wgfri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rinyu"]
+atlas = ExtResource("2_wgfri")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iybhp"]
+atlas = ExtResource("2_wgfri")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijuvk"]
+atlas = ExtResource("2_wgfri")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x5od"]
+atlas = ExtResource("2_wgfri")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xewhq"]
+atlas = ExtResource("2_wgfri")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8rsx"]
+atlas = ExtResource("2_wgfri")
+region = Rect2(640, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgfri"]
 atlas = ExtResource("1_joc1q")
@@ -46,6 +71,29 @@ region = Rect2(640, 256, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rinyu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rinyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iybhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijuvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x5od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xewhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8rsx")
+}],
+"loop": 1,
+"name": &"Attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wgfri")
@@ -99,9 +147,9 @@ texture_filter = 1
 position = Vector2(-3, -5)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_rinyu")
-animation = &"Run"
+animation = &"Attack"
 autoplay = "Idle"
-frame_progress = 0.52211094
+frame_progress = 0.17857355
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=804887687]
 
