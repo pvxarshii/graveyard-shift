@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_6k34c"]
 [ext_resource type="Texture2D" uid="uid://dk2nu73h8j1e1" path="res://Assets/Enemies/Bat/Attack/SimpleEnemies Bat_Attack Spritesheet.png" id="1_qdwi4"]
 [ext_resource type="Texture2D" uid="uid://w1l5k8e4rw1m" path="res://Assets/Enemies/Bat/Idle/SimpleEnemies Bat_Idle Spritesheet.png" id="2_6k34c"]
+[ext_resource type="Texture2D" uid="uid://c4uxy8tiaq16b" path="res://Assets/Enemies/Bat/Death/SimpleEnemies Bat_Death Spritesheet.png" id="3_413kf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k34c"]
 atlas = ExtResource("1_qdwi4")
@@ -35,6 +36,26 @@ region = Rect2(192, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d866b"]
 atlas = ExtResource("1_qdwi4")
 region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73d14"]
+atlas = ExtResource("3_413kf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecqyl"]
+atlas = ExtResource("3_413kf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnsuo"]
+atlas = ExtResource("3_413kf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xahbk"]
+atlas = ExtResource("3_413kf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqmgu"]
+atlas = ExtResource("3_413kf")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mj2he"]
 atlas = ExtResource("2_6k34c")
@@ -98,6 +119,26 @@ animations = [{
 "loop": 1,
 "name": &"Attack",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73d14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnsuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xahbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqmgu")
+}],
+"loop": 0,
+"name": &"Death",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
