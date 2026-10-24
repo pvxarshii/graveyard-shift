@@ -99,9 +99,9 @@ texture_filter = 1
 position = Vector2(-3, -5)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_2ynil")
-animation = &"Idle"
+animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.86332333
+frame_progress = 0.33823383
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=203500927]
 
