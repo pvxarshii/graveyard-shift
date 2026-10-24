@@ -31,6 +31,7 @@ public partial class EnemyController : CharacterBody2D
 		EnemyArea = GetNode<Area2D>("EnemyArea");
 		EnemyArea.BodyEntered += OnBodyEntered;
 		EnemyArea.BodyExited += OnBodyExited;
+		AnimSprite.AnimationFinished += OnDeathFinished;
 	}
 
 	// Physics Process
@@ -81,8 +82,6 @@ public partial class EnemyController : CharacterBody2D
 
 		Velocity -= pushAway * SeparationForce * (float)GetPhysicsProcessDeltaTime();
 	}
-
-
 
 	// Sprite Flip
 	protected virtual void HandleSpriteFlip()
@@ -137,7 +136,14 @@ public partial class EnemyController : CharacterBody2D
 	{
 		IsAlive = false;
 		Velocity = Vector2.Zero;
-		QueueFree();
+		AnimSprite.Play("Death");
+	}
+
+	// Death Animation
+	private void OnDeathFinished()
+	{
+		if (AnimSprite.Animation == "Death")
+			QueueFree();
 	}
 
 	// Signal Handlers
