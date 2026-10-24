@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_vkhtt"]
 [ext_resource type="Texture2D" uid="uid://bty2daqg4ssnf" path="res://Assets/Enemies/Skeleton/Skeleton_Idle.png" id="2_yqsvu"]
 [ext_resource type="Texture2D" uid="uid://b0y4cgtatasry" path="res://Assets/Enemies/Skeleton/Skeleton_Move.png" id="3_7uxyc"]
+[ext_resource type="Texture2D" uid="uid://7nfo086d8ruy" path="res://Assets/Death4.png" id="4_yqsvu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_scerx"]
 atlas = ExtResource("2_yqsvu")
@@ -87,12 +88,100 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uxyc"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ynil"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0voq"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iho8"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j22xk"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4k4l"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58g5c"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8kx4"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(114, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbh2h"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(152, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3jc3"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(190, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtbf2"]
+atlas = ExtResource("4_yqsvu")
+region = Rect2(228, 38, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37ncf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uxyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ynil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0voq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iho8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j22xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4k4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58g5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8kx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbh2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3jc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtbf2")
+}],
+"loop": 1,
+"name": &"Death",
+"speed": 11.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0voq"]
 radius = 21.0
 height = 86.0
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=2079074379]
+texture_filter = 1
 script = ExtResource("1_vkhtt")
+metadata/_edit_horizontal_guides_ = [-46.0, 44.0]
+metadata/_edit_vertical_guides_ = [-149.0]
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=278451659]
 texture_filter = 1
@@ -101,7 +190,13 @@ scale = Vector2(2.9892557, 3.0905643)
 sprite_frames = SubResource("SpriteFrames_2ynil")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.16128856
+
+[node name="DeathSprite" type="AnimatedSprite2D" parent="." unique_id=928555125]
+position = Vector2(-6, 13)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_37ncf")
+animation = &"Death"
+frame_progress = 0.17301774
 
 [node name="EnemyArea" type="Area2D" parent="." unique_id=203500927]
 
