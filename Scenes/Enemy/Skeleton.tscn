@@ -1,49 +1,8 @@
 [gd_scene format=3 uid="uid://djl2vqixongfg"]
 
 [ext_resource type="Script" uid="uid://ci8cp1nofebvf" path="res://Scripts/Enemy/EnemyController.cs" id="1_vkhtt"]
-[ext_resource type="Texture2D" uid="uid://7nfo086d8ruy" path="res://Assets/Death4.png" id="2_7uxyc"]
 [ext_resource type="Texture2D" uid="uid://bty2daqg4ssnf" path="res://Assets/Enemies/Skeleton/Skeleton_Idle.png" id="2_yqsvu"]
 [ext_resource type="Texture2D" uid="uid://b0y4cgtatasry" path="res://Assets/Enemies/Skeleton/Skeleton_Move.png" id="3_7uxyc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xj8ua"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(2, 0, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypkg3"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(40, 0, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u411x"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(78, 0, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yljqn"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(116, 0, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_457w5"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(154, 0, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tu30t"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(192, 0, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ey3t"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(116, 38, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yb7nt"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(154, 38, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3h1w5"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(192, 38, 38, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7iwl"]
-atlas = ExtResource("2_7uxyc")
-region = Rect2(230, 38, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_scerx"]
 atlas = ExtResource("2_yqsvu")
@@ -87,41 +46,6 @@ region = Rect2(640, 256, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ynil"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xj8ua")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ypkg3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u411x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yljqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_457w5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tu30t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ey3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yb7nt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3h1w5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u7iwl")
-}],
-"loop": 0,
-"name": &"Death",
-"speed": 11.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_scerx")
@@ -175,10 +99,9 @@ texture_filter = 1
 position = Vector2(-3, -5)
 scale = Vector2(2.9892557, 3.0905643)
 sprite_frames = SubResource("SpriteFrames_2ynil")
-animation = &"Death"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 9
-frame_progress = 1.0
+frame_progress = 0.16128856
 
 [node name="EnemyArea" type="Area2D" parent="." unique_id=203500927]
 
