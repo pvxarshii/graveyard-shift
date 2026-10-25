@@ -5,12 +5,13 @@ public partial class MagicBullet : Area2D
 	// Exports
 	[Export] public float Speed = 800f;
 	[Export] public float MaxLifetime = 3f;
+	[Export] public float SearchRange = 700f;
 
 	// State
+	public float Damage { get; set; } = 15f;
 	private Node2D Target;
-	private float Damage;
-	private float Lifetime = 0f;
 	private Vector2 Direction = Vector2.Right;
+	private float Lifetime = 0f;
 	private bool HasHit = false;
 
 	// Ready
@@ -20,31 +21,74 @@ public partial class MagicBullet : Area2D
 	}
 
 	// Setup
-	public void Initialize(Node2D target, float damage)
+	public void Initialize(Vector2 spawnPosition, float damage)
 	{
-		Target = target;
+		GlobalPosition = spawnPosition;
 		Damage = damage;
-		Direction = GlobalPosition.DirectionTo(target.GlobalPosition);
-		Rotation = Direction.Angle();
-	}
+		Target = FindNearestEnemy();
 
-	// Physics Process
-	public override void _PhysicsProcess(double delta)
-	{
-		Lifetime += (float)delta;
-		if (Lifetime >= MaxLifetime)
+		if (Target == null)
 		{
 			QueueFree();
 			return;
 		}
 
-		if (Target != null && GodotObject.IsInstanceValid(Target))
+		HandleTargeting();
+	}
+
+	// Physics Process
+	public override void _PhysicsProcess(double delta)
+	{
+		HandleLifetime(delta);
+		HandleMovement(delta);
+	}
+
+	// Lifetime
+	private void HandleLifetime(double delta)
+	{
+		Lifetime += (float)delta;
+		if (Lifetime >= MaxLifetime)
+			QueueFree();
+	}
+
+	// Movement
+	private void HandleMovement(double delta)
+	{
+		HandleTargeting();
+		GlobalPosition += Direction * Speed * (float)delta;
+	}
+
+	// Targeting
+	private void HandleTargeting()
+	{
+		if (Target == null || !IsInstanceValid(Target))
+			return;
+
+		Direction = GlobalPosition.DirectionTo(Target.GlobalPosition);
+		Rotation = Direction.Angle();
+	}
+
+	// Nearest Enemy
+	private Node2D FindNearestEnemy()
+	{
+		Node2D nearest = null;
+		float nearestDistance = SearchRange;
+
+		foreach (Node node in GetTree().GetNodesInGroup("Enemy"))
 		{
-			Direction = GlobalPosition.DirectionTo(Target.GlobalPosition);
-			Rotation = Direction.Angle();
+			Node2D enemy = node as Node2D;
+			if (enemy == null)
+				continue;
+
+			float distance = GlobalPosition.DistanceTo(enemy.GlobalPosition);
+			if (distance < nearestDistance)
+			{
+				nearestDistance = distance;
+				nearest = enemy;
+			}
 		}
 
-		GlobalPosition += Direction * Speed * (float)delta;
+		return nearest;
 	}
 
 	// Hit
@@ -53,7 +97,8 @@ public partial class MagicBullet : Area2D
 		if (HasHit)
 			return;
 
-		if (area.GetParent() is not EnemyController enemy)
+		EnemyController enemy = area.GetParent() as EnemyController;
+		if (enemy == null)
 			return;
 
 		HasHit = true;

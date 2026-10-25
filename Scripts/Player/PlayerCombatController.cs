@@ -3,10 +3,9 @@ using Godot;
 public partial class PlayerCombatController : Node2D
 {
 	// Exports
-	[Export] public float Damage = 15f;
-	[Export] public float Cooldown = 0.6f;
-	[Export] public float Range = 700f;
-	[Export] public PackedScene BulletScene;
+	[Export] public PackedScene MagicBulletScene;
+	[Export] public float MagicBulletDamage = 15f;
+	[Export] public float MagicBulletCooldown = 0.6f;
 
 	// State
 	private float CooldownTimer = 0f;
@@ -26,47 +25,28 @@ public partial class PlayerCombatController : Node2D
 		if (!Player.IsAlive || Player.IsSpawning)
 			return;
 
-		HandleAttack(delta);
+		HandleMagicBulletSpawning(delta);
 	}
 
-	// Attack
-	private void HandleAttack(double delta)
+	// Magic Bullet Spawning
+	private void HandleMagicBulletSpawning(double delta)
 	{
 		CooldownTimer += (float)delta;
-		if (CooldownTimer < Cooldown)
-			return;
-
-		Node2D target = FindNearestEnemy();
-		if (target == null || BulletScene == null)
+		if (CooldownTimer < MagicBulletCooldown)
 			return;
 
 		CooldownTimer = 0f;
-
-		MagicBullet bullet = BulletScene.Instantiate<MagicBullet>();
-		GetTree().CurrentScene.AddChild(bullet);
-		bullet.GlobalPosition = GlobalPosition;
-		bullet.Initialize(target, Damage);
+		SpawnMagicBullet();
 	}
 
-	// Targeting
-	private Node2D FindNearestEnemy()
+	// Magic Bullet
+	private void SpawnMagicBullet()
 	{
-		Node2D nearest = null;
-		float nearestDistance = Range;
+		if (MagicBulletScene == null)
+			return;
 
-		foreach (Node node in GetTree().GetNodesInGroup("Enemy"))
-		{
-			if (node is not Node2D enemy)
-				continue;
-
-			float distance = GlobalPosition.DistanceTo(enemy.GlobalPosition);
-			if (distance < nearestDistance)
-			{
-				nearestDistance = distance;
-				nearest = enemy;
-			}
-		}
-
-		return nearest;
+		MagicBullet bullet = MagicBulletScene.Instantiate<MagicBullet>();
+		GetTree().CurrentScene.AddChild(bullet);
+		bullet.Initialize(GlobalPosition, MagicBulletDamage);
 	}
 }

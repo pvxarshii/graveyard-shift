@@ -484,4 +484,4 @@ shape = SubResource("CapsuleShape2D_l3ax4")
 
 [node name="PlayerCombat" type="Node2D" parent="." unique_id=384019441]
 script = ExtResource("7_combat")
-BulletScene = ExtResource("8_bullet")
+MagicBulletScene = ExtResource("8_bullet")
